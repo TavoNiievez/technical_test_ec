@@ -1,0 +1,3 @@
+demo_endpoint:
+    path:       /demo
+    controller: App\Netflix\ExampleContext\Infrastructure\EntryPoint\DemoEntrypoint

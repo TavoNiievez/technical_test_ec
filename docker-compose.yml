@@ -14,6 +14,7 @@ services:
             - ./app:/app
         environment:
             - PHP_IDE_CONFIG=serverName=app
+        container_name: technical_test_ec_php
     mysql:
         image: mariadb:latest
         environment:
