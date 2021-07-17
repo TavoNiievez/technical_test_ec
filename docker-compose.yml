@@ -1,0 +1,41 @@
+version: '3'
+services:
+    web:
+        image: nginx:latest
+        ports:
+            - "80:80"
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+            - ./app:/app
+    php:
+        build:
+            context: .
+        volumes:
+            - ./app:/app
+        environment:
+            - PHP_IDE_CONFIG=serverName=app
+    mysql:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'secret'
+            MYSQL_DATABASE: 'database'
+        volumes:
+            - mysqldata:/var/lib/mysql
+        ports:
+            - 3306:3306
+    mysql_test:
+        image: mariadb:latest
+        environment:
+            MYSQL_ROOT_PASSWORD: 'secret'
+            MYSQL_USER: 'user'
+            MYSQL_PASSWORD: 'secret'
+            MYSQL_DATABASE: 'test'
+        volumes:
+            - mysqldata_test:/var/lib/mysql
+        ports:
+            - 13306:3306
+volumes:
+    mysqldata: {}
+    mysqldata_test: {}
