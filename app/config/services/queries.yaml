@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Netflix\Shared\Domain\Bus\QueryBus:
+    class: 'App\Netflix\Shared\Infrastructure\Bus\TacticianQueryBus'
+
+  App\Netflix\ExampleContext\Application\Query\Handler\ExampleHandler:
+    tags:
+      - { name: tactician.handler, command: App\Netflix\ExampleContext\Application\Query\Example, bus: query }

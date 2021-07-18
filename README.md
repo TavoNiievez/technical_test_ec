@@ -3,6 +3,11 @@
 docker-compose up --build
 ```
 
+# Codesniffer
+```
+docker exec -w /app -it technical_test_ec_php ./vendor/bin/phpcs
+```
+
 # Tests
 ## Unit
 ```

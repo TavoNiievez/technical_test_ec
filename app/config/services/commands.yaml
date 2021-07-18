@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  App\Netflix\Shared\Domain\Bus\CommandBus:
+    class: 'App\Netflix\Shared\Infrastructure\Bus\TacticianCommandBus'
+
+  App\Netflix\ExampleContext\Application\Command\Handler\Example2Handler:
+    tags:
+      - { name: tactician.handler, command: App\Netflix\ExampleContext\Application\Command\Example2, bus: default }
