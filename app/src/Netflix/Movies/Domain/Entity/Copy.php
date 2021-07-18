@@ -40,17 +40,23 @@ final class Copy
      */
     private string $format;
 
-    private function __construct(CopyId $id, Movie $movie, Language $language, MovieFormat $format)
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private bool $stocked;
+
+    private function __construct(CopyId $id, Movie $movie, Language $language, MovieFormat $format, bool $stocked)
     {
         $this->guid = $id->value();
         $this->movie = $movie;
         $this->language = $language->value();
         $this->format = $format->value();
+        $this->stocked = $stocked;
     }
 
-    public static function create(CopyId $id, Movie $movie, Language $language, MovieFormat $format)
+    public static function create(CopyId $id, Movie $movie, Language $language, MovieFormat $format, bool $stocked): self
     {
-        return new self($id, $movie, $language, $format);
+        return new self($id, $movie, $language, $format, $stocked);
     }
 
     public function id(): CopyId
@@ -58,7 +64,7 @@ final class Copy
         return CopyId::fromString($this->guid);
     }
 
-    public function movie(): MovieId
+    public function movieId(): MovieId
     {
         return $this->movie->id();
     }

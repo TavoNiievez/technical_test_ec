@@ -25,8 +25,18 @@ services:
 #            - '../src/Kernel.php'
 #            - '../src/Tests/'
 
-    App\Netflix\ExampleContext\Infrastructure\EntryPoint\:
-        resource: '../src/Netflix/ExampleContext/Infrastructure/EntryPoint'
+    App\Netflix\Movies\Domain\Repository\MovieRepository:
+        class: 'App\Netflix\Movies\Infrastructure\Repository\MariaDBMovieRepository'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    App\Netflix\Movies\Domain\Repository\CopyRepository:
+        class: 'App\Netflix\Movies\Infrastructure\Repository\MariaDBCopyRepository'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    App\Netflix\Movies\Infrastructure\EntryPoint\:
+        resource: '../src/Netflix/Movies/Infrastructure/EntryPoint'
         tags: [ 'controller.service_arguments' ]
 
     # add more service definitions when explicit configuration is needed

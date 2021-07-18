@@ -12,11 +12,6 @@ services:
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     public: true
 
-  App\Netflix\ExampleContext\Domain\Repository\DemoRepository:
-    class: 'App\Netflix\ExampleContext\Infrastructure\Repository\MariaDBDemoRepository'
-    arguments:
-      - '@doctrine.orm.entity_manager'
-
   App\Tests\Integration\Shared\Domain\FixtureLoader:
     class: 'App\Tests\Integration\Shared\Infrastructure\MariaDBFixtureLoader'
     arguments:

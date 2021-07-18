@@ -1,3 +1,6 @@
-demo_endpoint:
-    path:       /demo/{name}
-    controller: App\Netflix\ExampleContext\Infrastructure\EntryPoint\DemoEntrypoint
+list_movies:
+    path:           /api/{version}/movies
+    controller:     App\Netflix\Movies\Infrastructure\EntryPoint\ListMovies
+    methods:        GET
+    requirements:
+        version: v1
