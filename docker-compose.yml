@@ -26,4 +26,3 @@ services:
             - 3306:3306
 volumes:
     mysqldata: {}
-    mysqldata_test: {}
