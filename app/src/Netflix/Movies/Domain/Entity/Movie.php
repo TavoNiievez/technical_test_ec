@@ -29,13 +29,21 @@ final class Movie
     private string $guid;
 
     /**
-     * @ORM\OneToMany(targetEntity="\App\Netflix\Movies\Domain\ValueObject\MovieField", mappedBy="movie", cascade={"persist", "remove"})
+     * @ORM\OneToMany(
+     *     targetEntity="\App\Netflix\Movies\Domain\ValueObject\MovieField",
+     *     mappedBy="movie",
+     *     cascade={"persist", "remove"}
+     * )
      * @var Collection
      */
     private Collection $translatableFields;
 
     /**
-     * @ORM\OneToMany(targetEntity="\App\Netflix\Movies\Domain\Entity\Copy", mappedBy="movie", cascade={"persist", "remove"})
+     * @ORM\OneToMany(
+     *     targetEntity="\App\Netflix\Movies\Domain\Entity\Copy",
+     *     mappedBy="movie",
+     *     cascade={"persist", "remove"}
+     * )
      * @var Collection
      */
     private Collection $copies;

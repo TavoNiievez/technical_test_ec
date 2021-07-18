@@ -10,7 +10,8 @@
     <rule ref="PSR12">
     </rule>
     <rule ref="PSR2.Methods.MethodDeclaration.Underscore">
-        <exclude-pattern>tests/Functional/</exclude-pattern>
+        <exclude-pattern>src/</exclude-pattern>
+        <exclude-pattern>tests/</exclude-pattern>
     </rule>
 
     <file>src/</file>

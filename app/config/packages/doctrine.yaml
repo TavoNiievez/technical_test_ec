@@ -10,6 +10,16 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
+#            SharedEntities:
+#                is_bundle: false
+#                type: annotation
+#                dir: '%kernel.project_dir%/src/Netflix/Shared/Domain/Entity'
+#                prefix: 'App\Netflix\Shared\Domain\Entity'
+            SharedValueObjects:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Netflix/Shared/Domain/ValueObject'
+                prefix: 'App\Netflix\Shared\Domain\ValueObject'
             MoviesEntities:
                 is_bundle: false
                 type: annotation
@@ -20,3 +30,13 @@ doctrine:
                 type: annotation
                 dir: '%kernel.project_dir%/src/Netflix/Movies/Domain/ValueObject'
                 prefix: 'App\Netflix\Movies\Domain\ValueObject'
+            ClientsEntities:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Netflix/Clients/Domain/Entity'
+                prefix: 'App\Netflix\Clients\Domain\Entity'
+            ClientsValueObjects:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Netflix/Clients/Domain/ValueObject'
+                prefix: 'App\Netflix\Clients\Domain\ValueObject'
