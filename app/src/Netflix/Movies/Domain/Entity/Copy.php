@@ -54,8 +54,13 @@ final class Copy
         $this->stocked = $stocked;
     }
 
-    public static function create(CopyId $id, Movie $movie, Language $language, MovieFormat $format, bool $stocked): self
-    {
+    public static function create(
+        CopyId $id,
+        Movie $movie,
+        Language $language,
+        MovieFormat $format,
+        bool $stocked
+    ): self {
         return new self($id, $movie, $language, $format, $stocked);
     }
 

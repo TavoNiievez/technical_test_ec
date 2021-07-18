@@ -9,3 +9,7 @@ services:
   App\Netflix\Movies\Application\Query\Handler\GetMoviesHandler:
     tags:
       - { name: tactician.handler, command: App\Netflix\Movies\Application\Query\GetMovies, bus: query }
+
+  App\Netflix\Renting\Application\Query\Handler\CalculateCostOfRentHandler:
+    tags:
+      - { name: tactician.handler, command: App\Netflix\Renting\Application\Query\CalculateCostOfRent, bus: query }

@@ -39,5 +39,9 @@ services:
         resource: '../src/Netflix/Movies/Infrastructure/EntryPoint'
         tags: [ 'controller.service_arguments' ]
 
+    App\Netflix\Renting\Infrastructure\EntryPoint\:
+        resource: '../src/Netflix/Renting/Infrastructure/EntryPoint'
+        tags: [ 'controller.service_arguments' ]
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

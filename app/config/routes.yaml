@@ -4,3 +4,10 @@ list_movies:
     methods:        GET
     requirements:
         version: v1
+
+get_cost_of_rent:
+    path:           /api/{version}/movies/cost
+    controller:     App\Netflix\Renting\Infrastructure\EntryPoint\GetCostOfRent
+    methods:        GET
+    requirements:
+        version: v1
