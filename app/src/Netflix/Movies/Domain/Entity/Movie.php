@@ -35,6 +35,12 @@ final class Movie
     private Collection $translatableFields;
 
     /**
+     * @ORM\OneToMany(targetEntity="\App\Netflix\Movies\Domain\Entity\Copy", mappedBy="movie", cascade={"persist", "remove"})
+     * @var Collection
+     */
+    private Collection $copies;
+
+    /**
      * @ORM\Column(type="integer")
      */
     private int $year;
@@ -42,6 +48,7 @@ final class Movie
     private function __construct(MovieId $id, Year $year, MovieName $name)
     {
         $this->translatableFields = new ArrayCollection();
+        $this->copies = new ArrayCollection();
 
         $this->guid = $id->value();
         $this->year = $year->value();

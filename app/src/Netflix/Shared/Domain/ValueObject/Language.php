@@ -3,11 +3,7 @@
 namespace App\Netflix\Shared\Domain\ValueObject;
 
 use App\Netflix\Shared\Domain\Exception\UnknownLanguage;
-use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- */
 final class Language
 {
     public const LANGUAGE_EN = 'EN';
@@ -16,14 +12,6 @@ final class Language
     ];
 
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private int $id;
-
-    /**
-     * @ORM\Column(type="string", length=255)
      * @var string ISO 639-1 code
      */
     private string $code;
