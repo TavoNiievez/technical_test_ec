@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-final class Movie
+class Movie
 {
     /**
      * @ORM\Id

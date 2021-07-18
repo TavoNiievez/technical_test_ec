@@ -40,3 +40,13 @@ doctrine:
                 type: annotation
                 dir: '%kernel.project_dir%/src/Netflix/Clients/Domain/ValueObject'
                 prefix: 'App\Netflix\Clients\Domain\ValueObject'
+            RentingEntities:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Netflix/Renting/Domain/Entity'
+                prefix: 'App\Netflix\Renting\Domain\Entity'
+            RentingValueObjects:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Netflix/Renting/Domain/ValueObject'
+                prefix: 'App\Netflix\Renting\Domain\ValueObject'
