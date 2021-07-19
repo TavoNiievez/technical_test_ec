@@ -6,6 +6,6 @@ services:
   App\Netflix\Shared\Domain\Bus\CommandBus:
     class: 'App\Netflix\Shared\Infrastructure\Bus\TacticianCommandBus'
 
-  App\Netflix\ExampleContext\Application\Command\Handler\Example2Handler:
+  App\Netflix\Renting\Application\Command\Handler\RentMoviesHandler:
     tags:
-      - { name: tactician.handler, command: App\Netflix\ExampleContext\Application\Command\Example2, bus: default }
+      - { name: tactician.handler, command: App\Netflix\Renting\Application\Command\RentMovies, bus: default }

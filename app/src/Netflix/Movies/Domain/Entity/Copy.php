@@ -26,7 +26,11 @@ final class Copy
     private string $guid;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\App\Netflix\Movies\Domain\Entity\Movie", inversedBy="copies")
+     * @ORM\ManyToOne(
+     *     targetEntity="\App\Netflix\Movies\Domain\Entity\Movie",
+     *     inversedBy="copies",
+     *     cascade={"persist", "remove"}
+     * )
      */
     private Movie $movie;
 
@@ -82,5 +86,15 @@ final class Copy
     public function format(): MovieFormat
     {
         return MovieFormat::fromString($this->format);
+    }
+
+    public function rent()
+    {
+        $this->stocked = false;
+    }
+
+    public function stock()
+    {
+        $this->stocked = true;
     }
 }

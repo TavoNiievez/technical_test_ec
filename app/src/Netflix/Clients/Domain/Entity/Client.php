@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity
  */
-final class Client
+class Client
 {
     /**
      * @ORM\Id
@@ -55,12 +55,12 @@ final class Client
     /**
      * @ORM\Column(type="string", nullable=true)
      */
-    private string $email;
+    private ?string $email;
 
     /**
      * @ORM\Column(type="date_immutable", nullable=true)
      */
-    private DateTimeImmutable $birthdate;
+    private ?DateTimeImmutable $birthdate;
 
     private function __construct(
         ClientId $id,
@@ -77,8 +77,8 @@ final class Client
         $this->lastName = $name->lastName();
         $this->phoneNumber = $phoneNumber->value();
         $this->address = $address;
-        $this->email = $email->value();
-        $this->birthdate = $birthdate->value();
+        $this->email = $email?->value();
+        $this->birthdate = $birthdate?->value();
     }
 
     public static function create(
@@ -112,13 +112,15 @@ final class Client
         return $this->address;
     }
 
-    public function email(): Email
+    public function email(): ?Email
     {
+        if (is_null($this->email)) return null;
         return Email::fromString($this->email);
     }
 
-    public function birthdate(): Date
+    public function birthdate(): ?Date
     {
+        if (is_null($this->birthdate)) return null;
         return Date::fromDateTime($this->birthdate);
     }
 }

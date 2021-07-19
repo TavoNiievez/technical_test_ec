@@ -33,7 +33,11 @@ final class Address
     private string $addressDetails;
 
     /**
-     * @ORM\OneToOne(targetEntity="\App\Netflix\Clients\Domain\Entity\Client", inversedBy="address")
+     * @ORM\OneToOne(
+     *     targetEntity="\App\Netflix\Clients\Domain\Entity\Client",
+     *     inversedBy="address",
+     *     cascade={"persist", "remove"}
+     * )
      */
     private Client $client;
 

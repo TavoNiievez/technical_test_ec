@@ -35,6 +35,16 @@ services:
         arguments:
             - '@doctrine.orm.entity_manager'
 
+    App\Netflix\Clients\Domain\Repository\ClientRepository:
+        class: 'App\Netflix\Clients\Infrastructure\Repository\MariaDBClientRepository'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
+    App\Netflix\Renting\Domain\Repository\RentRepository:
+        class: 'App\Netflix\Renting\Infrastructure\Repository\MariaDBRentRepository'
+        arguments:
+            - '@doctrine.orm.entity_manager'
+
     App\Netflix\Movies\Infrastructure\EntryPoint\:
         resource: '../src/Netflix/Movies/Infrastructure/EntryPoint'
         tags: [ 'controller.service_arguments' ]

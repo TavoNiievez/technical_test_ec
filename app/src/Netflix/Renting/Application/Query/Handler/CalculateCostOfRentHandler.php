@@ -28,9 +28,9 @@ class CalculateCostOfRentHandler
         $finalCost = 0;
         foreach ($movies as $movie) {
             if ($movie->year()->value() === intval(date('Y'))) {
-                $finalCost += 5;
+                $finalCost += 500;
             } else {
-                $finalCost += 3;
+                $finalCost += 300;
             }
         }
 

@@ -31,12 +31,12 @@ final class Rent
     private string $guid;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\App\Netflix\Clients\Domain\Entity\Client")
+     * @ORM\ManyToOne(targetEntity="\App\Netflix\Clients\Domain\Entity\Client", cascade={"persist", "remove"})
      */
     private Client $client;
 
     /**
-     * @ORM\ManyToMany(targetEntity="\App\Netflix\Movies\Domain\Entity\Copy")
+     * @ORM\ManyToMany(targetEntity="\App\Netflix\Movies\Domain\Entity\Copy", cascade={"persist", "remove"})
      * @ORM\JoinTable(name="rent_copies",
      *     joinColumns={@ORM\JoinColumn(name="rent_id", referencedColumnName="id")},
      *     inverseJoinColumns={@ORM\JoinColumn(name="copy_id", referencedColumnName="id")}
